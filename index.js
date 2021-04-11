@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/about.html"));
+    res.sendFile(path.join(__dirname, "/public/about.html"));
 });
 
 // setup http server to listen on HTTP_PORT
