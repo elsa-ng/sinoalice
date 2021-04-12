@@ -10,7 +10,7 @@ function onHttpStart() {
 
 // setup a 'route' to listen on the default url path
 app.get("/", (req, res) => {
-    res.send("Hello World!<br /><a href='/about'>Go to the about page</a>");
+    res.sendFile(path.join(__dirname, "/public/landing.html"));
 });
 
 app.get("/about", (req, res) => {
