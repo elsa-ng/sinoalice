@@ -8,7 +8,7 @@ function onHttpStart() {
     console.log("Express http server listening on: " + HTTP_PORT);
 }
 
-app.use(express.static(path.join(__dirname, "/static")));
+app.use(express.static('static'));
 
 // setup a 'route' to listen on the default url path
 app.get("/", (req, res) => {
