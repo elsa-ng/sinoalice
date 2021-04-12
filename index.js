@@ -1,7 +1,7 @@
 var express = require("express");
 var path = require("path");
-var app = express();
 
+var app = express();
 var HTTP_PORT = process.env.PORT || 8080;
 
 function onHttpStart() {
@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/about.html"));
+});
+
+app.use((req, res) => {
+    res.status(404).send("Page Not Found");
 });
 
 // setup http server to listen on HTTP_PORT
