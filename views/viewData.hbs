@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>View Data - Genesis Gucci</title>
+</head>
+
+<body>
+    <table border='1'>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Occupation</th>
+            <th>Company</th>
+            <th>Status</th>
+        </tr>
+        {{#each data}}
+        <tr>
+            {{#if isVisible}}
+            <td>{{name}}</td>
+            <td>{{age}}</td>
+            <td>{{occupation}}</td>
+            <td>{{company}}</td>
+            <td>
+                {{#unless isContract}}
+                Full Time
+                {{else}}
+                Contract
+                {{/unless}}
+            </td>
+            {{else}}
+            <td colspan="5">User: '{{name}}' has hidden their information.</td>
+            {{/if}}
+        </tr>
+        {{else}}
+        <tr>
+            <td colspan="5">No Data Available.</td>
+        </tr>
+        {{/each}}
+    </table>
+</body>
+
+</html>
