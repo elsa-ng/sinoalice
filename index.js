@@ -49,7 +49,7 @@ app.get('/nmCal', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        data: NAV.nav_items('about us'),
+        data: NAV.nav_items('about'),
         layout: 'main'
     });
 });
