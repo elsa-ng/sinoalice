@@ -2,7 +2,8 @@ const dotenv = require("dotenv");
 const express = require("express");
 const path = require("path");
 const exphbs = require('express-handlebars');
-const helpers = require('./lib/exphbs_helpers');
+const HELPERS = require('./lib/exphbs_helpers');
+const NAV = require('./lib/global_navigations');
 
 const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
@@ -17,7 +18,7 @@ app.engine('.hbs', exphbs({
     extname: '.hbs',
     defaultLayout: 'main',
     helpers: {
-        section: helpers.header_section
+        section: HELPERS.header_section
     }
 }));
 app.set('view engine', '.hbs');
@@ -26,26 +27,38 @@ app.use('/slds', express.static(__dirname + SLDS_DIR));
 
 // setup a 'route' to listen on the default url path
 app.get("/", function (req, res) {
-    res.render('landing', {
-        data: null,
+    res.render('home', {
+        data: NAV.nav_items('home'),
         layout: 'main'
     });
 });
 
 app.get('/members', (req, res) => {
-    res.render('members');
+    res.render('members', {
+        data: NAV.nav_items('members'),
+        layout: 'main'
+    });
 });
 
-app.get('/nmOrder', (req, res) => {
-    res.render('nmOrder');
+app.get('/nmCal', (req, res) => {
+    res.render('nmCal', {
+        data: NAV.nav_items('nm calculator'),
+        layout: 'main'
+    });
 });
 
 app.get('/about', (req, res) => {
-    res.render('about');
+    res.render('about', {
+        data: NAV.nav_items('about us'),
+        layout: 'main'
+    });
 });
 
-app.get('/joinUs', (req, res) => {
-    res.render('joinUs');
+app.get('/join', (req, res) => {
+    res.render('join', {
+        data: NAV.nav_items('join us'),
+        layout: 'main'
+    });
 });
 
 app.get("/viewData", function (req, res) {
@@ -56,7 +69,7 @@ app.get("/viewData", function (req, res) {
         company: "Scotiabank",
         isVisible: false,
         isContract: false
-    },{
+    }, {
         name: "Sarah",
         age: 32,
         occupation: "manager",
