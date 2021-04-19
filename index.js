@@ -56,7 +56,7 @@ app.get('/about', (req, res) => {
 
 app.get('/join', (req, res) => {
     res.render('join', {
-        data: NAV.nav_items('join us'),
+        data: NAV.nav_items('join'),
         layout: 'main'
     });
 });
