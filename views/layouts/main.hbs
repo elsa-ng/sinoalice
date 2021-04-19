@@ -6,12 +6,138 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="/slds/styles/salesforce-lightning-design-system.css" />
-    {{{_sections.head}}}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+        html {
+            background: #f3f1e2 !important;
+            color: black !important;
+            margin: 0 !important;
+        }
+
+        main {
+            margin-top: 2.4rem;
+            margin-bottom: 2.4rem;
+        }
+
+        .skip {
+            position: absolute;
+            width: 7.5rem;
+            height: 2.1rem;
+            top: 0.3%;
+            left: 0.2%;
+            padding-top: 0.55rem;
+            padding-bottom: 0.55rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            text-align: center;
+            transform: translateY(-110%);
+            transition: transform 0.3s;
+            background: #f3f1e2;
+            font-weight: 900;
+            z-index: 9999;
+        }
+
+        a.skip:focus {
+            transform: translateY(0%);
+            color: black;
+            top: 0.3%;
+            left: 0.2%;
+        }
+
+        .menulogo {
+            margin-right: 0.5rem;
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .topNav {
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .slds-context-bar {
+            border-bottom: 3px solid #a39594 !important;
+            background-color: #18B495 !important;
+            color: black !important;
+            font-weight: 700 !important;
+        }
+
+        .slds-context-bar__item {
+            max-width: 12.5rem;
+        }
+
+        .slds-context-bar__item.slds-is-active:before {
+            background: #f3f1e2 !important;
+        }
+
+        .slds-context-bar__item:not(.slds-no-hover):hover,
+        .slds-context-bar__item.slds-is-active {
+            background-color: rgba(249, 248, 241, 0.5) !important;
+        }
+
+        .navbar .icon {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {
+                display: none;
+            }
+
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .navbar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+        }
+
+        img.center.responsive-image {
+            width: 100%;
+            height: auto;
+        }
+
+        img.center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            background-color: RGB(163, 149, 148, 0.3);
+            color: black;
+            text-align: center;
+        }
+    </style>
+    {{{content.head}}}
 </head>
 
 <body>
+    <a href="#content" class="skip">Skip to content</a>
+    {{> header navItems=data}}
     {{{body}}}
-    {{!-- Footer goes here --}}
+    {{> footer}}
 </body>
 
 </html>
