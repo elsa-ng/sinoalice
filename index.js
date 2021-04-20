@@ -1,9 +1,9 @@
-const dotenv = require("dotenv");
 const express = require("express");
 const path = require("path");
+const dotenv = require("dotenv");
 const exphbs = require('express-handlebars');
 const HELPERS = require('./lib/exphbs_helpers');
-const NAV = require('./lib/global_navigations');
+const NAV = require('./lib/nav.config');
 
 const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
@@ -28,35 +28,35 @@ app.use('/slds', express.static(__dirname + SLDS_DIR));
 // setup a 'route' to listen on the default url path
 app.get("/", function (req, res) {
     res.render('home', {
-        data: NAV.nav_items('home'),
+        navs: NAV.nav_items('home'),
         layout: 'main'
     });
 });
 
 app.get('/members', (req, res) => {
     res.render('members', {
-        data: NAV.nav_items('members'),
+        navs: NAV.nav_items('members'),
         layout: 'main'
     });
 });
 
 app.get('/nmCal', (req, res) => {
     res.render('nmCal', {
-        data: NAV.nav_items('nm calculator'),
+        navs: NAV.nav_items('nm calculator'),
         layout: 'main'
     });
 });
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        data: NAV.nav_items('about'),
+        navs: NAV.nav_items('about'),
         layout: 'main'
     });
 });
 
 app.get('/join', (req, res) => {
     res.render('join', {
-        data: NAV.nav_items('join'),
+        navs: NAV.nav_items('join'),
         layout: 'main'
     });
 });

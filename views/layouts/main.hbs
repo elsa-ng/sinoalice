@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="rnJlWzXQm6QtQuNUWhx6HvpbI8ud5FHNGQKJKPLpyac" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/slds/styles/salesforce-lightning-design-system.css" />
@@ -132,6 +133,7 @@
             color: black;
             text-align: center;
         }
+        {{{content.style}}}
     </style>
     {{{content.head}}}
 </head>
@@ -146,7 +148,7 @@
             }
         });
     </script>
-    {{> header navItems=data}}
+    {{> header navItems=navs}}
     {{{body}}}
     {{> footer}}
 </body>

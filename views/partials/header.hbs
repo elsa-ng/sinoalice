@@ -9,7 +9,7 @@
     </div>
     <nav class="slds-context-bar__secondary" role="navigation">
         <ul class="slds-grid">
-            {{#each data}}
+            {{#each navItems}}
             <li class="slds-context-bar__item {{#if isCurrent}}slds-is-active{{/if}} {{#if hasSubmenu}}slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open{{/if}}"
                 title="{{title}}">
                 <a href="{{link}}" class="slds-context-bar__label-action" title="{{title}}">
