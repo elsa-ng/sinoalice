@@ -1,7 +1,94 @@
 {{#section 'head'}}
-<title>Under Construction - Join Us - Genesis Gucci</title>
+<style>
+    div.slds-container_center.slds-container--medium {
+        margin-top: 5rem;
+    }
+
+    label.slds-form-element__label {
+        color: black;
+        font-weight: 500;
+        font-size: small;
+    }
+</style>
+<title>Join Us - Genesis Gucci</title>
 {{/section}}
 {{> header }}
 <main id="content">
-
+    <div class="slds-container_center slds-container--medium">
+        <form>
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_vertical-align-center">
+                <div class="slds-col slds-size--1-of-1">
+                    <h1 class="slds-text-heading--large" title="Join Genesis Gucci">
+                        Join Us
+                    </h1>
+                </div>
+                <div class="slds-col slds-size--1-of-1">
+                    <p class="join">
+                        Please complete the application form and submit your character information for review. You can
+                        locate your character information in the <em>Profile</em> section in the game.</p>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-m-top--large">
+                    <h2 class="slds-text-heading--medium">
+                        Application Form
+                    </h2>
+                </div>
+                <div
+                    class="slds-col slds-size--1-of-1 slds-grid slds-grid_vertical slds-wrap slds-m-top--xx-small slds-p-left--large">
+                    <div class="slds-col slds-size--1-of-3">
+                        <div class="slds-form-element slds-form-element_stacked">
+                            <label class="slds-form-element__label" for="form-element-01">
+                                <abbr class="slds-required" title="required">* </abbr>Character Name</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="form-element-01" placeholder="e.g. Aries" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-3 slds-m-top--xx-small">
+                        <div class="slds-form-element slds-form-element_stacked">
+                            <label class="slds-form-element__label" for="form-element-02">
+                                <abbr class="slds-required" title="required">* </abbr>Character ID</label>
+                            <div class="slds-form-element__control">
+                                <input type="number" id="form-element-02" placeholder="e.g. 123456789" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-3 slds-m-top--xx-small">
+                        <div class="slds-form-element slds-form-element_stacked">
+                            <label class="slds-form-element__label" for="form-element-03">
+                                <abbr class="slds-required" title="required">* </abbr>Rank</label>
+                            <div class="slds-form-element__control">
+                                <input type="number" id="form-element-03" placeholder="e.g. 190" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-3 slds-m-top--xx-small">
+                        <div class="slds-form-element slds-form-element_stacked">
+                            <label class="slds-form-element__label" for="form-element-04">
+                                <abbr class="slds-required" title="required">* </abbr>Points</label>
+                            <div class="slds-form-element__control">
+                                <input type="number" id="form-element-04" placeholder="e.g. 123456" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-m-top--xx-small">
+                        <div class="slds-form-element slds-form-element_stacked">
+                            <label class="slds-form-element__label" for="form-element-05">Comments</label>
+                            <div class="slds-form-element__control">
+                                <textarea id="form-element-05"
+                                    placeholder="e.g. I'd like to join Genesis Gucci because..."
+                                    class="slds-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-m-top--medium slds-p-left--xx-small">
+                        <button type="submit" class="slds-button slds-button_brand">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </main>

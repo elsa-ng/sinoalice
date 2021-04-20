@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/slds/styles/salesforce-lightning-design-system.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
@@ -89,15 +91,35 @@
             margin-right: auto;
         }
 
-        a.slds-button.slds-button_outline-brand {
-            background-color: #edebd7;
+        a.slds-button.slds-button_outline-brand,
+        button.slds-button.slds-button_brand {
+            background-color: #89d6c3;
             border-color: #a39594;
-            border-width: 0.1em;
+            border-width: 0.15em;
             color: black;
             font-weight: 900;
-            font-size: x-large;
+            font-size: large;
             padding-top: var(--sds-c-button-spacing-block-end, 0.25rem);
             padding-bottom: var(--sds-c-button-spacing-block-end, 0.25rem);
+        }
+
+        h1.slds-text-heading--large {
+            font-weight: 600;
+            color: #504949;
+        }
+
+        h2.slds-text-heading--medium {
+            font-weight: 600;
+            color: #504949;
+        }
+
+        p.about,
+        dt.slds-item_label.about,
+        dd.slds-item_detail.about,
+        p.join {
+            font-weight: 400;
+            font-size: 1rem;
+            color: black;
         }
 
         .footer {
@@ -116,6 +138,14 @@
 
 <body>
     <a href="#content" class="skip">Skip to content</a>
+    <script>
+        let skipLink = document.querySelector("a.skip");
+        skipLink.addEventListener("keydown", event => {
+            if (event.key === " ") {
+                skipLink.click();
+            }
+        });
+    </script>
     {{> header navItems=data}}
     {{{body}}}
     {{> footer}}

@@ -47,7 +47,15 @@
                     Colosseum (Time Slot 8)</p>
             </div>
             <div class="slds-col slds-size--1-of-1 slds-m-top--large" style="text-align: center;">
-                <a class="slds-button slds-button_outline-brand" href="/join">Join Us</a>
+                <a class="slds-button slds-button_outline-brand" href="/join" role="button">Join Us</a>
+                <script>
+                    let joinLink = document.querySelector("a.slds-button");
+                    joinLink.addEventListener("keydown", event => {
+                        if (event.key === " ") {
+                            joinLink.click();
+                        }
+                    });
+                </script>
             </div>
         </div>
     </div>
