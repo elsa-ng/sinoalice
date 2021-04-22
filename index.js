@@ -3,11 +3,28 @@ const path = require("path");
 const dotenv = require("dotenv");
 const exphbs = require('express-handlebars');
 const HELPERS = require('./lib/exphbs_helpers');
-const NAV = require('./lib/nav.config');
+const NAV = require('./lib/config.nav');
+const MAILER = require('./lib/mail');
 
 const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
 const SLDS_DIR = '/node_modules/@salesforce-ux/design-system/assets';
+
+var someData = [{
+    name: "John",
+    age: 23,
+    occupation: "developer",
+    company: "Scotiabank",
+    isVisible: false,
+    isContract: false
+}, {
+    name: "Sarah",
+    age: 32,
+    occupation: "manager",
+    company: "TD",
+    isVisible: true,
+    isContract: true
+}];
 
 function onHttpStart() {
     console.log("Express http server listening on: " + HTTP_PORT);
@@ -36,6 +53,7 @@ app.get("/", function (req, res) {
 app.get('/members', (req, res) => {
     res.render('members', {
         navs: NAV.nav_items('members'),
+        data: someData,
         layout: 'main'
     });
 });
@@ -61,26 +79,44 @@ app.get('/join', (req, res) => {
     });
 });
 
-app.get("/viewData", function (req, res) {
-    var someData = [{
-        name: "John",
-        age: 23,
-        occupation: "developer",
-        company: "Scotiabank",
-        isVisible: false,
-        isContract: false
-    }, {
-        name: "Sarah",
-        age: 32,
-        occupation: "manager",
-        company: "TD",
-        isVisible: true,
-        isContract: true
-    }];
+app.post('/email', (req, res) => {
+    const { subject, email, text } = req.body;
+    log('Data: ', req.body);
 
-    res.render('viewData', {
-        data: someData,
-        layout: false
+    sendMail(email, subject, text, function(err, data) {
+        if (err) {
+            log('ERROR: ', err);
+            return res.status(500).json({ message: err.message || 'Internal Error' });
+        }
+        log('Email sent!!!');
+        return res.json({ message: 'Email sent!!!!!' });
+    });
+});
+
+app.post('/submitform', (req, res) => {
+    const { text } = req.body;
+    console.log('Data: ', req.body);
+
+    MAILER(text, function(err, data) {
+        if (err) {
+            console.log('Error: ', err);
+            return res.status(500).json({ message: err.message || 'Internal Error' });
+        }
+        console.log('Email Sent!');
+        return res.json({ message: 'Email Sent!' });
+    });
+});
+
+// Error page
+app.get('/error', (req, res) => {
+    // render the appropriate view
+});
+
+// Email sent page
+app.get('/submitform/sent', (req, res) => {
+    res.render('sent', {
+        navs: NAV.nav_items('Home'),
+        layout: 'main'
     });
 });
 
